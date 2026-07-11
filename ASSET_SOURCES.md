@@ -249,6 +249,44 @@ Los assets de equipo y entorno incorporados no contienen clips de animacion.
 
 ## Notas para la siguiente etapa
 
-- Validar escala, pivote y orientacion en un `asset-lab` antes de reemplazar primitivas en batalla.
+- Validar escala, pivote y orientacion en `asset-lab` antes de reemplazar primitivas en batalla.
 - Mantener la carga desde `public/assets/kaykit/`; no cargar desde `graficos` ni desde internet.
 - Si se agregan nuevos glTF con texturas compartidas, actualizar los URI de imagen para apuntar a `public/assets/kaykit/textures/...` y documentarlo aqui.
+
+## Asset Lab
+
+Ruta local:
+
+```text
+http://localhost:8017/asset-lab/
+```
+
+Archivos del laboratorio:
+
+| Archivo | Uso |
+| --- | --- |
+| `asset-lab/index.html` | Entrada independiente del laboratorio visual. |
+| `src/assetLab/AssetLabApp.js` | Carga GLB/glTF, reproduce clips, muestra bounding box, skeleton helper, clones y metricas. |
+| `src/assets/kaykitManifest.js` | Manifest central de assets KayKit, rutas, escala inicial, equipo y alias de animacion. |
+| `styles/asset-lab.css` | Estilos del panel de control del laboratorio. |
+
+Controles disponibles:
+
+- Selector de modelo KayKit.
+- Selector de clip real.
+- Botones de alias de animacion: `Idle`, `Ready`, `Melee`, `Cast`, `Hit`, `Death`.
+- Pausa/reanudacion.
+- Velocidad de animacion.
+- Escala del modelo.
+- Bounding box.
+- Skeleton helper.
+- Sombras.
+- Clonado de unidades para probar independencia de mixers.
+- Lectura de poligonos, draw calls y FPS aproximados.
+
+Restricciones:
+
+- El laboratorio no modifica la logica clinica.
+- El laboratorio no decide farmacologia.
+- El laboratorio no reemplaza aun las primitivas de la batalla.
+- Los modelos se cargan desde `public/assets/kaykit/`.

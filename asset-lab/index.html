@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATB Asset Lab</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/asset-lab.css">
+</head>
+<body>
+  <main id="asset-lab" class="asset-lab">
+    <canvas id="asset-lab-canvas" aria-label="Laboratorio visual de assets KayKit"></canvas>
+    <aside class="lab-panel" aria-label="Controles del laboratorio">
+      <header class="lab-header">
+        <span>ATB</span>
+        <strong>Asset Lab</strong>
+        <a href="../index.html">Volver</a>
+      </header>
+
+      <label class="lab-field">
+        <span>Modelo</span>
+        <select id="asset-select"></select>
+      </label>
+
+      <div class="lab-actions" role="group" aria-label="Estados de animacion">
+        <button type="button" data-play-state="idle">Idle</button>
+        <button type="button" data-play-state="ready">Ready</button>
+        <button type="button" data-play-state="attackMelee">Melee</button>
+        <button type="button" data-play-state="cast">Cast</button>
+        <button type="button" data-play-state="hit">Hit</button>
+        <button type="button" data-play-state="death">Death</button>
+      </div>
+
+      <label class="lab-field">
+        <span>Clip real</span>
+        <select id="clip-select"></select>
+      </label>
+
+      <div class="lab-actions">
+        <button id="pause-animation" type="button">Pausar</button>
+        <button id="clone-one" type="button">Clonar</button>
+        <button id="clear-clones" type="button">Limpiar clones</button>
+      </div>
+
+      <label class="lab-field">
+        <span>Velocidad <b id="speed-value">1.0x</b></span>
+        <input id="speed-range" type="range" min="0" max="2" step="0.1" value="1">
+      </label>
+
+      <label class="lab-field">
+        <span>Escala <b id="scale-value">1.0</b></span>
+        <input id="scale-range" type="range" min="0.2" max="2.5" step="0.1" value="1">
+      </label>
+
+      <div class="lab-toggles">
+        <label><input id="toggle-skeleton" type="checkbox"> Skeleton</label>
+        <label><input id="toggle-shadows" type="checkbox" checked> Sombras</label>
+        <label><input id="toggle-bounds" type="checkbox" checked> Bounding box</label>
+      </div>
+
+      <section class="lab-readout" aria-live="polite">
+        <p><b>Pack</b><span id="asset-pack">-</span></p>
+        <p><b>Formato</b><span id="asset-format">-</span></p>
+        <p><b>Animaciones</b><span id="clip-count">0</span></p>
+        <p><b>Poligonos</b><span id="triangle-count">0</span></p>
+        <p><b>Draw calls</b><span id="draw-calls">0</span></p>
+        <p><b>FPS</b><span id="fps-value">0</span></p>
+        <p><b>Bounding box</b><span id="bounds-value">-</span></p>
+      </section>
+
+      <section class="lab-clips">
+        <span>Clips reales</span>
+        <ol id="clip-list"></ol>
+      </section>
+    </aside>
+    <div id="lab-status" class="lab-status">Cargando laboratorio...</div>
+  </main>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="../src/assetLab/AssetLabApp.js"></script>
+</body>
+</html>
