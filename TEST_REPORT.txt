@@ -1,0 +1,306 @@
+
+> atb-tower-defense@0.4.0 check
+> npm test && npm run validate:clinical
+
+
+> atb-tower-defense@0.4.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: 1. Cefazolina + MSSA es efectiva
+ok 1 - 1. Cefazolina + MSSA es efectiva
+  ---
+  duration_ms: 7.758588
+  type: 'test'
+  ...
+# Subtest: 2. Cefazolina + MRSA falla por PBP2a
+ok 2 - 2. Cefazolina + MRSA falla por PBP2a
+  ---
+  duration_ms: 0.781281
+  type: 'test'
+  ...
+# Subtest: 3. Vancomicina + MRSA es efectiva y genera exposición renal
+ok 3 - 3. Vancomicina + MRSA es efectiva y genera exposición renal
+  ---
+  duration_ms: 0.370038
+  type: 'test'
+  ...
+# Subtest: 4. Clindamicina + MRSA sin antibiograma/D-test permanece condicional
+ok 4 - 4. Clindamicina + MRSA sin antibiograma/D-test permanece condicional
+  ---
+  duration_ms: 0.43138
+  type: 'test'
+  ...
+# Subtest: 5. Ceftriaxona + anaerobios mixtos es inefectiva
+ok 5 - 5. Ceftriaxona + anaerobios mixtos es inefectiva
+  ---
+  duration_ms: 0.565566
+  type: 'test'
+  ...
+# Subtest: 6. Metronidazol + anaerobios mixtos es efectivo
+ok 6 - 6. Metronidazol + anaerobios mixtos es efectivo
+  ---
+  duration_ms: 0.392226
+  type: 'test'
+  ...
+# Subtest: 7. Ceftriaxona + metronidazol es una combinación complementaria en infección mixta
+ok 7 - 7. Ceftriaxona + metronidazol es una combinación complementaria en infección mixta
+  ---
+  duration_ms: 0.718561
+  type: 'test'
+  ...
+# Subtest: 8. Vancomicina mantenida tras cultivo MSSA penaliza PROA y propone desescalada
+ok 8 - 8. Vancomicina mantenida tras cultivo MSSA penaliza PROA y propone desescalada
+  ---
+  duration_ms: 1.080257
+  type: 'test'
+  ...
+# Subtest: 9. Un antibiograma resistente anula cobertura basal fuerte
+ok 9 - 9. Un antibiograma resistente anula cobertura basal fuerte
+  ---
+  duration_ms: 1.377973
+  type: 'test'
+  ...
+# Subtest: 10. La sensibilidad informada no vence una incompatibilidad intrínseca
+ok 10 - 10. La sensibilidad informada no vence una incompatibilidad intrínseca
+  ---
+  duration_ms: 1.631402
+  type: 'test'
+  ...
+# Subtest: 11. La matriz resuelve todos los pares de una infección mixta
+ok 11 - 11. La matriz resuelve todos los pares de una infección mixta
+  ---
+  duration_ms: 1.058382
+  type: 'test'
+  ...
+# Subtest: 12. El contexto desconocido produce un error explícito
+ok 12 - 12. El contexto desconocido produce un error explícito
+  ---
+  duration_ms: 0.698506
+  type: 'test'
+  ...
+# Subtest: 13. Clindamicina susceptible no vence un D-test pendiente cuando hay resistencia a eritromicina
+ok 13 - 13. Clindamicina susceptible no vence un D-test pendiente cuando hay resistencia a eritromicina
+  ---
+  duration_ms: 0.365244
+  type: 'test'
+  ...
+# Subtest: 14. Clindamicina susceptible con D-test negativo se vuelve efectiva
+ok 14 - 14. Clindamicina susceptible con D-test negativo se vuelve efectiva
+  ---
+  duration_ms: 0.3103
+  type: 'test'
+  ...
+# Subtest: 15. La matriz basal completa produce 65 resoluciones válidas y finitas
+ok 15 - 15. La matriz basal completa produce 65 resoluciones válidas y finitas
+  ---
+  duration_ms: 13.806164
+  type: 'test'
+  ...
+# Subtest: 16. Un antibiograma resistente elimina mensajes positivos obsoletos
+ok 16 - 16. Un antibiograma resistente elimina mensajes positivos obsoletos
+  ---
+  duration_ms: 0.646902
+  type: 'test'
+  ...
+# Subtest: 17. Datos de sensibilidad no disponibles aún no modifican la cobertura
+ok 17 - 17. Datos de sensibilidad no disponibles aún no modifican la cobertura
+  ---
+  duration_ms: 0.341452
+  type: 'test'
+  ...
+# Subtest: 18. La sensibilidad de una bacteria identificada no se aplica a otro blanco
+ok 18 - 18. La sensibilidad de una bacteria identificada no se aplica a otro blanco
+  ---
+  duration_ms: 0.337883
+  type: 'test'
+  ...
+# Subtest: 19. Todos los betalactámicos comunes permanecen inefectivos frente a MRSA
+ok 19 - 19. Todos los betalactámicos comunes permanecen inefectivos frente a MRSA
+  ---
+  duration_ms: 2.565776
+  type: 'test'
+  ...
+# Subtest: 20. D-test positivo bloquea clindamicina aunque figure susceptible
+ok 20 - 20. D-test positivo bloquea clindamicina aunque figure susceptible
+  ---
+  duration_ms: 0.3897
+  type: 'test'
+  ...
+# Subtest: 21. El control del foco incompleto limita, pero no inventa, resistencia
+ok 21 - 21. El control del foco incompleto limita, pero no inventa, resistencia
+  ---
+  duration_ms: 0.461257
+  type: 'test'
+  ...
+# Subtest: 22. Alergia inmediata grave bloquea betalactámico sin decir que carece de espectro
+ok 22 - 22. Alergia inmediata grave bloquea betalactámico sin decir que carece de espectro
+  ---
+  duration_ms: 0.375706
+  type: 'test'
+  ...
+# Subtest: 23. Modificadores de seguridad generan advertencias específicas
+ok 23 - 23. Modificadores de seguridad generan advertencias específicas
+  ---
+  duration_ms: 1.784681
+  type: 'test'
+  ...
+# Subtest: 24. La combinación complementaria no elogia el impacto contra el blanco equivocado
+ok 24 - 24. La combinación complementaria no elogia el impacto contra el blanco equivocado
+  ---
+  duration_ms: 1.675961
+  type: 'test'
+  ...
+# Subtest: 25. Cefazolina + oxacilina contra MSSA se marca como redundante
+ok 25 - 25. Cefazolina + oxacilina contra MSSA se marca como redundante
+  ---
+  duration_ms: 0.605891
+  type: 'test'
+  ...
+# Subtest: 26. Vancomicina + gentamicina eleva exposición renal y auditiva
+ok 26 - 26. Vancomicina + gentamicina eleva exposición renal y auditiva
+  ---
+  duration_ms: 0.573863
+  type: 'test'
+  ...
+# Subtest: 27. Insuficiencia renal aumenta la exposición normalizada
+ok 27 - 27. Insuficiencia renal aumenta la exposición normalizada
+  ---
+  duration_ms: 0.356694
+  type: 'test'
+  ...
+# Subtest: 28. Meropenem innecesario en infección estreptocócica no grave reduce PROA
+ok 28 - 28. Meropenem innecesario en infección estreptocócica no grave reduce PROA
+  ---
+  duration_ms: 0.374329
+  type: 'test'
+  ...
+# Subtest: 29. Cobertura amplia empírica grave se tolera temporalmente
+ok 29 - 29. Cobertura amplia empírica grave se tolera temporalmente
+  ---
+  duration_ms: 0.325797
+  type: 'test'
+  ...
+# Subtest: 30. Vancomicina tras confirmar MSSA exige desescalada
+ok 30 - 30. Vancomicina tras confirmar MSSA exige desescalada
+  ---
+  duration_ms: 0.478861
+  type: 'test'
+  ...
+# Subtest: 31. Presión de resistencia aumenta con ineficacia, duración y foco no controlado
+ok 31 - 31. Presión de resistencia aumenta con ineficacia, duración y foco no controlado
+  ---
+  duration_ms: 0.637725
+  type: 'test'
+  ...
+# Subtest: 32. La progresión activa caveats solo desde el nivel correspondiente
+ok 32 - 32. La progresión activa caveats solo desde el nivel correspondiente
+  ---
+  duration_ms: 0.55912
+  type: 'test'
+  ...
+# Subtest: 33. El orden suministrado de pasos no cambia la semántica clínica
+ok 33 - 33. El orden suministrado de pasos no cambia la semántica clínica
+  ---
+  duration_ms: 1.901957
+  type: 'test'
+  ...
+# Subtest: 34. IDs desconocidos dentro de la terapia activa se rechazan
+ok 34 - 34. IDs desconocidos dentro de la terapia activa se rechazan
+  ---
+  duration_ms: 0.898978
+  type: 'test'
+  ...
+# Subtest: 35. Valores numéricos no finitos se rechazan y negativos se normalizan
+ok 35 - 35. Valores numéricos no finitos se rechazan y negativos se normalizan
+  ---
+  duration_ms: 0.930442
+  type: 'test'
+  ...
+# Subtest: 36. El resolver es determinista y no muta la entrada
+ok 36 - 36. El resolver es determinista y no muta la entrada
+  ---
+  duration_ms: 0.99769
+  type: 'test'
+  ...
+# Subtest: 37. La matriz elimina duplicados de antibióticos y bacterias
+ok 37 - 37. La matriz elimina duplicados de antibióticos y bacterias
+  ---
+  duration_ms: 1.030384
+  type: 'test'
+  ...
+# Subtest: 38. Un paso desconocido y un pipeline sin cobertura basal producen error
+ok 38 - 38. Un paso desconocido y un pipeline sin cobertura basal producen error
+  ---
+  duration_ms: 0.539255
+  type: 'test'
+  ...
+# Subtest: 39. Gentamicina no se presenta como monoterapia antiestafilocócica en SSTI
+ok 39 - 39. Gentamicina no se presenta como monoterapia antiestafilocócica en SSTI
+  ---
+  duration_ms: 0.600314
+  type: 'test'
+  ...
+# Subtest: 40. Los umbrales de toxicidad respetan 0–30, 31–60, 61–80 y 81–100
+ok 40 - 40. Los umbrales de toxicidad respetan 0–30, 31–60, 61–80 y 81–100
+  ---
+  duration_ms: 0.921192
+  type: 'test'
+  ...
+# Subtest: 41. E. coli identificada sin antibiograma no autoriza desescalada automática
+ok 41 - 41. E. coli identificada sin antibiograma no autoriza desescalada automática
+  ---
+  duration_ms: 0.947784
+  type: 'test'
+  ...
+# Subtest: 42. Todos los antibióticos tienen matriz de espectro completa y valores válidos
+ok 42 - 42. Todos los antibióticos tienen matriz de espectro completa y valores válidos
+  ---
+  duration_ms: 1.887744
+  type: 'test'
+  ...
+# Subtest: 43. Todos los perfiles bacterianos y farmacológicos apuntan a fuentes existentes
+ok 43 - 43. Todos los perfiles bacterianos y farmacológicos apuntan a fuentes existentes
+  ---
+  duration_ms: 1.498212
+  type: 'test'
+  ...
+# Subtest: 44. Todas las configuraciones de nivel usan pasos clínicos válidos
+ok 44 - 44. Todas las configuraciones de nivel usan pasos clínicos válidos
+  ---
+  duration_ms: 0.494411
+  type: 'test'
+  ...
+# Subtest: 45. Todos los códigos docentes emitidos por el banco ampliado existen en feedbackRules
+ok 45 - 45. Todos los códigos docentes emitidos por el banco ampliado existen en feedbackRules
+  ---
+  duration_ms: 29.052883
+  type: 'test'
+  ...
+# Subtest: 46. Las 455 resoluciones por nivel se mantienen dentro del contrato
+ok 46 - 46. Las 455 resoluciones por nivel se mantienen dentro del contrato
+  ---
+  duration_ms: 19.102183
+  type: 'test'
+  ...
+1..46
+# tests 46
+# suites 0
+# pass 46
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 330.716988
+
+> atb-tower-defense@0.4.0 validate:clinical
+> node scripts/validateClinicalResolver.mjs
+
+{
+  "resolverVersion": "0.4.0",
+  "generatedAt": "2026-07-10T23:38:35.843Z",
+  "resolutionsEvaluated": 5715,
+  "deterministicFuzzCases": 5000,
+  "failures": 0,
+  "status": "PASS"
+}

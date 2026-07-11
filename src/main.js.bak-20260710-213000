@@ -1,0 +1,39 @@
+import { APP_NAME, APP_STAGE } from "./data/progression.js";
+import { antibiotics } from "./data/antibiotics.js";
+import { bacteria } from "./data/bacteria.js";
+import { LevelScene } from "./scenes/LevelScene.js";
+import { HudPanel } from "./ui/HudPanel.js";
+
+function bootstrap() {
+  const status = document.querySelector("#app-status");
+
+  if (status) {
+    status.textContent = `${APP_NAME} - ${bacteria.length} bacterias - ${antibiotics.length} antibioticos`;
+    status.classList.add("is-ready");
+  }
+
+  if (!window.Phaser) {
+    throw new Error("Phaser no se cargo. Revisa la conexion al CDN.");
+  }
+
+  const hudPanel = new HudPanel(document);
+  window.atbHudPanel = hudPanel;
+  const Phaser = window.Phaser;
+
+  new Phaser.Game({
+    type: Phaser.AUTO,
+    parent: "game-container",
+    width: 960,
+    height: 540,
+    backgroundColor: "#5f9e54",
+    scale: {
+      mode: Phaser.Scale.FIT,
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    scene: [LevelScene]
+  });
+
+  console.info(`[ATB Tower Defense] ${APP_STAGE} cargado.`);
+}
+
+bootstrap();

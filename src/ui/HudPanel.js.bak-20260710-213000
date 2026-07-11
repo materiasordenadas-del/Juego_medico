@@ -1,0 +1,40 @@
+export class HudPanel {
+  constructor(rootElement) {
+    this.rootElement = rootElement;
+    this.nodes = {
+      health: rootElement.querySelector("#hud-health"),
+      credits: rootElement.querySelector("#hud-credits"),
+      wave: rootElement.querySelector("#hud-wave"),
+      enemies: rootElement.querySelector("#hud-enemies"),
+      result: rootElement.querySelector("#hud-result"),
+      effect: rootElement.querySelector("#hud-effect"),
+      towerName: rootElement.querySelector("#tower-name"),
+      towerRange: rootElement.querySelector("#tower-range"),
+      towerRate: rootElement.querySelector("#tower-rate"),
+      bacteriaName: rootElement.querySelector("#bacteria-name"),
+      waveStatus: rootElement.querySelector("#wave-status"),
+      lastFeedback: rootElement.querySelector("#last-feedback")
+    };
+  }
+
+  render(state) {
+    this.setText("health", `Salud: ${state.health}`);
+    this.setText("credits", `Creditos: ${state.credits}`);
+    this.setText("wave", `Oleada: ${state.wave}`);
+    this.setText("enemies", `Bacterias: ${state.remaining}`);
+    this.setText("result", `Estado: ${state.status}`);
+    this.setText("effect", `Resolver: ${state.effectiveness ?? "-"}`);
+    this.setText("towerName", state.towerName);
+    this.setText("towerRange", `${Math.round(state.towerRange)} px`);
+    this.setText("towerRate", `${state.towerRate.toFixed(2)} / s`);
+    this.setText("bacteriaName", state.bacteriaName);
+    this.setText("waveStatus", `${state.spawned}/${state.total}`);
+    this.setText("lastFeedback", state.feedbackCode ?? "-");
+  }
+
+  setText(key, value) {
+    if (this.nodes[key]) {
+      this.nodes[key].textContent = value;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "atb-tower-defense",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate:clinical": "node scripts/validateClinicalResolver.mjs",
+    "check": "npm test && npm run validate:clinical"
+  }
+}

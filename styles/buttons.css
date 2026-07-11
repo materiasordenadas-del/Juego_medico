@@ -1,0 +1,5 @@
+button { border: 1px solid rgba(245, 222, 152, .55); border-radius: 4px; color: #fff7db; background: rgba(45, 71, 53, .95); cursor: pointer; }
+button:hover:not(:disabled) { border-color: #fff2b4; filter: brightness(1.15); }
+button:disabled { cursor: not-allowed; opacity: .45; }
+.start-battle { min-width: 182px; padding: 12px 17px; background: linear-gradient(#a53c32, #692821); border-color: #ffd57e; font-weight: bold; letter-spacing: .04em; }
+.icon-button { width: 34px; height: 34px; font-size: 20px; }

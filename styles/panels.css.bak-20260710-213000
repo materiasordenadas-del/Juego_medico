@@ -1,0 +1,127 @@
+.file-open-warning {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 2px solid var(--warning);
+  border-radius: 8px;
+  background: rgba(55, 39, 18, 0.92);
+  color: #fff4c6;
+}
+
+.file-open-warning[hidden] {
+  display: none;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.project-header h1 {
+  margin: 2px 0 0;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #fff3c2;
+  text-shadow: 0 3px 0 #4a2c1b;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(420px, 1fr) minmax(180px, 240px);
+  align-items: start;
+  gap: 12px;
+}
+
+.panel,
+#game-container {
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 245, 186, 0.08), transparent 42%),
+    var(--surface);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.panel {
+  padding: 14px;
+}
+
+.panel h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #fff4c6;
+}
+
+.info-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.info-list div {
+  padding: 10px;
+  border: 1px solid rgba(241, 196, 97, 0.35);
+  border-radius: 6px;
+  background: rgba(18, 28, 17, 0.42);
+}
+
+.info-list dt {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.info-list dd {
+  margin: 3px 0 0;
+  overflow-wrap: anywhere;
+  color: #fff7d7;
+  font-size: 0.92rem;
+}
+
+#game-container {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+#game-container canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.status-badge {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  background: rgba(18, 28, 17, 0.66);
+}
+
+.status-badge.is-ready {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  #game-container {
+    order: -1;
+  }
+}

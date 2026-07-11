@@ -1,0 +1,24 @@
+.hud {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.hud span {
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid rgba(241, 196, 97, 0.45);
+  border-radius: 6px;
+  background: rgba(24, 35, 21, 0.82);
+  color: #fff4c6;
+  font-size: 0.84rem;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .hud {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}

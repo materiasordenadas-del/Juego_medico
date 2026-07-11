@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+html, body { min-width: 320px; min-height: 100%; margin: 0; }
+body { background: #102219; color: #f9f4df; font-family: Georgia, "Times New Roman", serif; }
+button { font: inherit; }
+#app-shell { min-height: 100vh; }
+.battle-shell { position: relative; min-height: 100vh; overflow: hidden; background: #264a3d; }
+#battle-canvas { display: block; width: 100%; height: 100vh; touch-action: none; }
+.file-open-warning { position: fixed; z-index: 20; inset: 20px 20px auto; padding: 12px; background: #5b3022; border: 1px solid #f6cc76; }
+.file-open-warning[hidden] { display: none; }
