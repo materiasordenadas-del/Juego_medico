@@ -1,5 +1,0 @@
-export class Bacteria {
-  constructor(config = {}) {
-    Object.assign(this, config);
-  }
-}

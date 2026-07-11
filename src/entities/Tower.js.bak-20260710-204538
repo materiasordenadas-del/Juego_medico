@@ -1,5 +1,0 @@
-export class Tower {
-  constructor(config = {}) {
-    Object.assign(this, config);
-  }
-}

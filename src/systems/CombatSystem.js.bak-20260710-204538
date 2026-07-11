@@ -1,9 +1,0 @@
-export class CombatSystem {
-  constructor(context = {}) {
-    this.context = context;
-  }
-
-  update() {
-    // Pendiente de implementación.
-  }
-}

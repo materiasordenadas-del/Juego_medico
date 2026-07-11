@@ -1,5 +1,0 @@
-export class Projectile {
-  constructor(config = {}) {
-    Object.assign(this, config);
-  }
-}
