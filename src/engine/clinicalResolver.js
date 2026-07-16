@@ -105,3 +105,4 @@ export function resolveTherapyMatrix(context, optionsOrSteps = null) {
 }
 
 export { DEFAULT_CLINICAL_STEPS } from "./clinicalPipelineSteps.js";
+export { resolveRegimenOutcome, advanceClinicalClock } from "./regimenOutcome.js";

@@ -1,9 +1,1 @@
-* { box-sizing: border-box; }
-html, body { min-width: 320px; min-height: 100%; margin: 0; }
-body { background: #102219; color: #f9f4df; font-family: Georgia, "Times New Roman", serif; }
-button { font: inherit; }
-#app-shell { min-height: 100vh; }
-.battle-shell { position: relative; min-height: 100vh; overflow: hidden; background: #264a3d; }
-#battle-canvas { display: block; width: 100%; height: 100vh; touch-action: none; }
-.file-open-warning { position: fixed; z-index: 20; inset: 20px 20px auto; padding: 12px; background: #5b3022; border: 1px solid #f6cc76; }
-.file-open-warning[hidden] { display: none; }
+*{box-sizing:border-box}body{margin:0;background:#081d25;color:#f5fbff;font:16px system-ui,sans-serif}.battle-shell{position:relative;min-height:100vh;background:#173f38}.battle-shell canvas{width:100%;height:100vh;display:block}.top-hud,.context-panel,.command-deck,.event-feed,.battle-label,#result-panel{position:absolute;background:#071b25e8;border:2px solid #8fe4dc;border-radius:10px;padding:10px;z-index:2}.top-hud{top:12px;left:12px;right:12px;display:flex;gap:12px;justify-content:space-between}.context-panel{right:12px;top:70px;max-width:330px}.enemy-label{top:150px;left:12px}.player-label{top:185px;left:12px}.event-feed{left:12px;right:12px;bottom:180px}.command-deck{left:12px;right:12px;bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.command-deck section{display:flex;gap:6px;flex:1;overflow:auto}.antibiotic-card,button,select{padding:8px;border-radius:7px;border:1px solid #bceee7;background:#164f58;color:#fff}.antibiotic-card.is-selected{outline:3px solid #ffd36b}.tactical-note{width:100%;margin:0;color:#d5f5f0;font-size:.9rem}#result-panel{inset:35% 30%;text-align:center}button:focus-visible,select:focus-visible{outline:3px solid #ffd36b;outline-offset:2px}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}@media(max-width:700px){.battle-shell canvas{height:70vh}.top-hud{font-size:.78rem}.context-panel{top:auto;bottom:220px;left:12px;right:12px;max-width:none}.event-feed{bottom:180px;font-size:.85rem}.command-deck{font-size:.85rem}.antibiotic-card small{display:none}}
