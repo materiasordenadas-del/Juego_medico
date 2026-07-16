@@ -3,69 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="ATB Formations: prototipo educativo de farmacologia antimicrobiana.">
+  <meta name="description" content="ATB Formations, simulador educativo de farmacologia antimicrobiana.">
   <title>ATB Formations</title>
-  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./styles/base.css">
-  <link rel="stylesheet" href="./styles/hud.css">
-  <link rel="stylesheet" href="./styles/panels.css">
-  <link rel="stylesheet" href="./styles/buttons.css">
-  <link rel="stylesheet" href="./styles/theme.css">
 </head>
 <body>
   <main id="app-shell">
-    <section id="file-open-warning" class="file-open-warning" hidden>
-      <strong>Este juego necesita abrirse desde ABRIR_JUEGO.bat.</strong>
-      <span>No se puede iniciar correctamente con doble clic en index.html.</span>
-    </section>
-
+    <section id="file-open-warning" class="file-open-warning" hidden></section>
     <section class="battle-shell" aria-label="Campo de batalla tactico">
       <canvas id="battle-canvas" aria-label="Campo de batalla en tres dimensiones"></canvas>
-
       <header class="top-hud">
-        <div class="brand-lockup"><span>ATB</span><strong>FORMATIONS</strong></div>
-        <div class="combat-stats">
-          <span>Oleada <b id="hud-wave">1</b></span>
-          <span>Salud <b id="hud-health">100</b></span>
-          <span>Toxicidad <b id="hud-toxicity">0</b></span>
-          <span>Resistencia <b id="hud-resistance">0</b></span>
-          <span>PROA <b id="hud-proa">0</b></span>
-        </div>
-        <button id="camera-reset" class="icon-button" type="button" title="Restablecer camara" aria-label="Restablecer camara">&#8634;</button>
+        <strong>ATB FORMATIONS · FASE 4</strong>
+        <span>Oleada <b id="hud-wave">1</b> · Salud <b id="hud-health">100</b> · Toxicidad <b id="hud-toxicity">0</b> · Resistencia <b id="hud-resistance">0</b> · PROA <b id="hud-proa">0</b></span>
+        <button id="camera-reset" type="button">Camara</button>
       </header>
-
-      <section class="battle-label enemy-label"><span>HORDA BACTERIANA</span><b id="enemy-count">0 / 0</b></section>
-      <section class="battle-label player-label"><span>FORMACION ANTIBIOTICA</span><b id="formation-count">0 / 15</b></section>
-
-      <aside id="context-panel" class="context-panel" aria-live="polite">
-        <span class="context-kicker">SELECCION</span>
-        <strong id="context-name">Elige un antibiotico</strong>
-        <p id="context-class">Selecciona una unidad del catalogo y luego una posicion iluminada.</p>
-        <div class="context-meta"><span id="context-cost">Costo: -</span><span id="context-slot">Posicion: -</span></div>
-        <button id="remove-unit" type="button" disabled>Retirar unidad</button>
+      <aside class="context-panel" aria-live="polite">
+        <b id="context-name">Elige un antibiotico</b>
+        <p id="context-class">Las filas modifican la tactica, nunca el espectro clinico.</p>
+        <span id="context-cost">Costo: -</span> · <span id="context-slot">Fila: -</span>
+        <p><button id="remove-unit" type="button">Retirar</button><button id="reset-formation" type="button">Restablecer formacion</button></p>
       </aside>
-
-      <section class="event-feed" aria-live="polite"><span id="combat-feedback">Preparacion: coloca una unidad para comenzar.</span></section>
-
+      <section class="battle-label enemy-label">Horda: <b id="enemy-count">0 / 0</b></section>
+      <section class="battle-label player-label">Formacion: <b id="formation-count">0 / 15</b></section>
+      <p class="event-feed" id="combat-feedback" aria-live="polite"></p>
       <footer class="command-deck">
-        <section id="antibiotic-catalog" class="antibiotic-catalog" aria-label="Catalogo de antibioticos"></section>
-        <div class="command-actions">
-          <span id="hud-credits">120 creditos</span>
-          <button id="start-battle" class="start-battle" type="button" disabled>COMENZAR BATALLA</button>
-          <span id="battle-state">PREPARACION</span>
-        </div>
+        <section id="antibiotic-catalog" aria-label="Catalogo de antibioticos"></section>
+        <span id="hud-credits">150 creditos</span>
+        <button id="start-battle" type="button">Comenzar</button>
+        <button id="pause-battle" type="button">Pausa</button>
+        <label>Velocidad <select id="battle-speed"><option value="1">1x</option><option value="1.5">1.5x</option><option value="2">2x</option></select></label>
+        <span id="battle-state">PREPARATION</span>
+        <p class="tactical-note">Primera linea protege e intercepta; segunda linea equilibra; retaguardia apoya. Alcance, cadencia y velocidad de proyectil son tacticos. La eficacia clinica procede solo del resolver.</p>
       </footer>
-
-      <section id="result-panel" class="result-panel" hidden>
-        <span id="result-title">RESULTADOS</span>
-        <p id="result-summary"></p>
-        <button id="restart-battle" type="button">Nueva preparacion</button>
-      </section>
+      <section id="result-panel" hidden><b id="result-title"></b><p id="result-summary"></p><button id="restart-battle">Nueva preparacion</button></section>
     </section>
   </main>
-
-  <script>if (window.location.protocol === "file:") document.querySelector("#file-open-warning").hidden = false;</script>
-  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.166.1/examples/jsm/"}}</script>
   <script type="module" src="./src/main.js"></script>
 </body>
 </html>

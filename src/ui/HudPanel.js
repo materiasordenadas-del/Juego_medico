@@ -1,10 +1,11 @@
 export class HudPanel {
   constructor(root) {
     this.root = root;
+    this.lastState = null;
     this.nodes = Object.fromEntries([
       "hud-wave", "hud-health", "hud-toxicity", "hud-resistance", "hud-proa", "hud-credits",
       "enemy-count", "formation-count", "combat-feedback", "battle-state", "context-name",
-      "context-class", "context-cost", "context-slot", "start-battle", "remove-unit", "result-panel",
+      "context-class", "context-cost", "context-slot", "start-battle", "remove-unit", "reset-formation", "pause-battle", "battle-speed", "result-panel",
       "result-title", "result-summary", "antibiotic-catalog"
     ].map((id) => [id, root.querySelector(`#${id}`)]));
   }
@@ -15,6 +16,9 @@ export class HudPanel {
     this.root.querySelector("#remove-unit").addEventListener("click", actions.onRemove);
     this.root.querySelector("#camera-reset").addEventListener("click", actions.onResetCamera);
     this.root.querySelector("#restart-battle").addEventListener("click", actions.onRestart);
+    this.root.querySelector("#pause-battle").addEventListener("click", actions.onPause);
+    this.root.querySelector("#battle-speed").addEventListener("change", (event) => actions.onSpeed(Number(event.target.value)));
+    this.root.querySelector("#reset-formation").addEventListener("click", actions.onResetFormation);
   }
 
   renderCatalog(antibiotics) {
@@ -29,6 +33,9 @@ export class HudPanel {
   }
 
   render(state) {
+    const fingerprint = JSON.stringify(state);
+    if (fingerprint === this.lastState) return;
+    this.lastState = fingerprint;
     this.text("hud-wave", state.wave);
     this.text("hud-health", Math.round(state.health));
     this.text("hud-toxicity", Math.round(state.toxicity));
@@ -45,6 +52,10 @@ export class HudPanel {
     this.text("context-slot", state.contextSlot);
     this.nodes["start-battle"].disabled = !state.canStart;
     this.nodes["remove-unit"].disabled = !state.canRemove;
+    this.nodes["reset-formation"].disabled = !(state.canResetFormation ?? state.canRemove);
+    this.nodes["pause-battle"].disabled = state.phase !== "COMBAT";
+    this.nodes["pause-battle"].textContent = state.paused ? "Reanudar" : "Pausa";
+    this.nodes["battle-speed"].value = String(state.speed ?? 1);
     this.nodes["result-panel"].hidden = !state.result;
     if (state.result) {
       this.text("result-title", state.result.title);

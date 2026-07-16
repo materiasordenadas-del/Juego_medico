@@ -1,0 +1,10 @@
+import * as THREE from "three";
+
+/** Adaptador visual: no guarda decisiones ni reglas clínicas. */
+export class ClinicalCanvasScene {
+  constructor(canvas) { this.canvas = canvas; this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); this.scene = new THREE.Scene(); this.camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100); this.camera.position.set(0, 7, 12); this.camera.lookAt(0, 0, 0); this.clock = new THREE.Clock(); this.microbes = []; this.createWorld(); this.resize = this.resize.bind(this); window.addEventListener("resize", this.resize); this.resize(); this.animate(); }
+  createWorld() { this.scene.background = new THREE.Color(0x102d37); this.scene.add(new THREE.HemisphereLight(0xd8f8ff, 0x132a20, 2)); const light = new THREE.DirectionalLight(0xffe0a3, 3); light.position.set(4, 8, 5); this.scene.add(light); const floor = new THREE.Mesh(new THREE.CircleGeometry(6, 48), new THREE.MeshStandardMaterial({ color: 0x215a53, roughness: 0.85 })); floor.rotation.x = -Math.PI / 2; this.scene.add(floor); }
+  setScenario(scenario) { this.microbes.forEach((mesh) => this.scene.remove(mesh)); this.microbes = scenario.infectionState.bacteriaIds.map((id, index) => { const color = id === "mrsa" ? 0xa75ac7 : id === "ecoli" ? 0x7dcf61 : id === "mixed_anaerobes" ? 0x9a879f : 0xf08a75; const mesh = new THREE.Mesh(new THREE.IcosahedronGeometry(0.8, 1), new THREE.MeshStandardMaterial({ color, roughness: 0.38, metalness: 0.08 })); mesh.position.set((index - 0.5) * 2.5, 1, 0); this.scene.add(mesh); return mesh; }); }
+  resize() { const { width, height } = this.canvas.getBoundingClientRect(); this.renderer.setSize(Math.max(1, width), Math.max(1, height), false); this.camera.aspect = width / Math.max(1, height); this.camera.updateProjectionMatrix(); }
+  animate() { requestAnimationFrame(() => this.animate()); const time = this.clock.getElapsedTime(); this.microbes.forEach((mesh, index) => { mesh.rotation.y = time * (0.5 + index * 0.1); mesh.position.y = 1 + Math.sin(time + index) * 0.16; }); this.renderer.render(this.scene, this.camera); }
+}
